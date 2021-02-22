@@ -1,20 +1,35 @@
-name: Deploy to GitHub Pages
+name: deploy-website
+
+# Only run this when the master branch changes
 on:
-  push:	
-    branches:	
-      - main
+  push:
+    branches:
+    - main
 
+# This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest    
+  deploy-book:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v2
 
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: gh-pages
-        FOLDER: docs/html
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # Install dependencies
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    # Build the book
+    - name: Build the site
+      run: |
+        make dirhtml
+    # Push the book's HTML to github-pages
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v3.5.9
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/html
+        cname: sethirajat.com
