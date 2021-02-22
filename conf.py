@@ -30,7 +30,7 @@ author = "Rajat Sethi"
 extensions = [
     "ablog",
     "sphinx_panels",
-    "sphinxcontrib.bibtex",
+    # "sphinxcontrib.bibtex",
     "myst_nb",
     # "sphinxext.opengraph",
 ]
