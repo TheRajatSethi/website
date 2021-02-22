@@ -12,7 +12,7 @@ myst_nb
 sphinx
 sphinx-panels
 ablog
-sphinxcontrib-bibtex
 sphinxext-opengraph
 pydata-sphinx-theme
 MyST-Parser
+# sphinxcontrib-bibtex
