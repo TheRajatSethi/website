@@ -1,3 +1,3 @@
 # website
 
-This repo contains the website sethirajat.com
+This repo contains the website https://www.sethirajat.com
