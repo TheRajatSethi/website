@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Class Functions in Python &#8212; Rajat Sethi  documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pandas cheatsheet" href="pandas-cheatsheet.html" />
+    <link rel="prev" title="Curated Articles" href="../articles/index.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" /> 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Rajat Sethi"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Rajat Sethi</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../articles/index.html">Curated Articles</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../blog.html">Blog</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this site..." aria-label="Search this site..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/therajatsethi" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/therajatsethi" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  02 March 2021 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/rajat-sethi.html">Rajat Sethi</a>  
+</li>
+    
+<li id="tags">
+  <span
+    ><i
+      class="fa-fw fa fa-tag"
+    ></i
+    ></span
+  >
+   
+  <a href="tag/python.html">python</a>  
+</li>
+ 
+<li id="comments">
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = "sethirajat"; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+      var s = document.createElement("script");
+      s.async = true;
+      s.type = "text/javascript";
+      s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+      (
+        document.getElementsByTagName("HEAD")[0] ||
+        document.getElementsByTagName("BODY")[0]
+      ).appendChild(s);
+    })();
+  </script>
+  <i class="fa-fw fa fa-comments"></i>
+  <a
+    href="#disqus_thread"
+    data-disqus-identifier="/blog/first-class-functions-in-python/"
+  >
+    </a
+  >
+</li>
+
+</ul>
+
+<h3>
+  <a href="../blog.html">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="pandas-cheatsheet.html"
+      >25 February - Pandas cheatsheet</a
+    >
+  </li>
+  
+  <li>
+    <a href="blogging-with-python-sphinx.html"
+      >01 February - Blogging with Python’s Sphinx</a
+    >
+  </li>
+  
+</ul>
+
+<h3>
+  <a href="archive.html">Archives</a>
+</h3>
+<ul>
+       
+  <li>
+    <a href="2021.html">2021 (3)</a>
+  </li>
+   
+</ul>
+
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#what-are-first-class-functions" class="nav-link">What are first class functions?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#storing-functions-in-a-variable" class="nav-link">Storing functions in a variable</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#passing-functions-as-arguments" class="nav-link">Passing functions as arguments</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#returning-function" class="nav-link">Returning function</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#re-building-python-s-map-function" class="nav-link">Re-building Python’s map function</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#simple-function-dispatcher" class="nav-link">Simple Function Dispatcher</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#building-a-data-pipe-line-generator" class="nav-link">Building a Data Pipe Line generator</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <div class="section" id="first-class-functions-in-python">
+<h1>First Class Functions in Python<a class="headerlink" href="#first-class-functions-in-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-first-class-functions">
+<h2>What are first class functions?<a class="headerlink" href="#what-are-first-class-functions" title="Permalink to this headline">¶</a></h2>
+<p>A language is set to support first class functions when they can be treated like any other value. You can pass them to functions as arguments, return them from functions, and save them in variables.</p>
+<p>First-class functions are important because they’re a basic requirement for writing higher-level abstractions with functions. First class functions are used in various abstractions like closures, decorator and more. First class functions also facilitate metaprogramming.</p>
+</div>
+<div class="section" id="storing-functions-in-a-variable">
+<h2>Storing functions in a variable<a class="headerlink" href="#storing-functions-in-a-variable" title="Permalink to this headline">¶</a></h2>
+<p>Functions can be stored as a value can inside a variable. Few examples below.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">foo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="ow">is</span> <span class="n">foo</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">==</span> <span class="n">foo</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">()</span>
+<span class="go">foo</span>
+</pre></div>
+</div>
+<p>In the above example <code class="docutils literal notranslate"><span class="pre">foo</span></code> function is stored in <code class="docutils literal notranslate"><span class="pre">y</span></code> variable. <code class="docutils literal notranslate"><span class="pre">y</span></code> can be executed exactly like <code class="docutils literal notranslate"><span class="pre">foo</span></code> can.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">double_it</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">double_it</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">20</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">double_it</span>
+<span class="go">&lt;function &lt;lambda&gt; at 0x0000019EF46DA790&gt;</span>
+</pre></div>
+</div>
+<p>Its not just named functions that can be stored in variables, even the anonymous lambda functions can be stored inside a variable.</p>
+</div>
+<div class="section" id="passing-functions-as-arguments">
+<h2>Passing functions as arguments<a class="headerlink" href="#passing-functions-as-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Functions can also be passed into arguments just like a Integer or String value is passed in an argument.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">my_func</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_func</span><span class="o">.</span><span class="vm">__qualname__</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bar</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="go">foo</span>
+</pre></div>
+</div>
+<p>In the above example the function <code class="docutils literal notranslate"><span class="pre">foo</span></code> is passed as an argument inside the <code class="docutils literal notranslate"><span class="pre">bar</span></code> function.</p>
+</div>
+<div class="section" id="returning-function">
+<h2>Returning function<a class="headerlink" href="#returning-function" title="Permalink to this headline">¶</a></h2>
+<p>A function can also return a function as shown below. The <code class="docutils literal notranslate"><span class="pre">bar</span></code> function returns the <code class="docutils literal notranslate"><span class="pre">foo</span></code> function which was defined above. The <code class="docutils literal notranslate"><span class="pre">foo</span></code> function could also have been defined inside the <code class="docutils literal notranslate"><span class="pre">bar</span></code> function which would have made it a nested function which you will see described below.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">foo</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">bar</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">==</span> <span class="n">foo</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="re-building-python-s-map-function">
+<h2>Re-building Python’s <code class="docutils literal notranslate"><span class="pre">map</span></code> function<a class="headerlink" href="#re-building-python-s-map-function" title="Permalink to this headline">¶</a></h2>
+<p>Having the above stated capabilities open up a lot of coding paradigms, one of them being the functional programming. The functional programming makes heavy use of the <code class="docutils literal notranslate"><span class="pre">map()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> functions.</p>
+<p>In this section lets try and attempt to replicate some of the functionality of Python’s map function.</p>
+<p>Before we jump over to see how can we replicate the map function and create our own version of it lets check out the standard implementation. The standard <code class="docutils literal notranslate"><span class="pre">map</span></code> function takes in an iterable(s) and applies a specified function to each element in that iterable.</p>
+<p>E.g. lets multiply everything in a list by 2.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]))</span>
+<span class="go">[20, 40]</span>
+</pre></div>
+</div>
+<p>Calculate the length of each element in the list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="s2">&quot;Australia&quot;</span><span class="p">,</span> <span class="s2">&quot;Egypt&quot;</span><span class="p">,</span> <span class="s2">&quot;Sweden&quot;</span><span class="p">]))</span>
+<span class="go">(3, 6, 9, 5, 6)</span>
+</pre></div>
+</div>
+<p>Multiple iterators can be supplied. Here I have given two lists, they will be zipped and supplied as arguments to the function. Thus if you are providing two lists make sure the function is able to take in two arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="go">[100, 8000]</span>
+</pre></div>
+</div>
+<p>I hope the above code snippets gave you some sense of the <code class="docutils literal notranslate"><span class="pre">map</span></code> function which you see accepts functions as arguments i.e. making use of functions as first class citizens. In the remainder of this section let build our own version of the <code class="docutils literal notranslate"><span class="pre">map</span></code> function. I’ll call it <code class="docutils literal notranslate"><span class="pre">my_map</span></code>.</p>
+<p>The below <code class="docutils literal notranslate"><span class="pre">my_map</span></code> function can take in a function and single iterable and apply that function to all the elements of that iterable. Note the line 2 is a generator expression in case the sequence is very long. Even the standard <code class="docutils literal notranslate"><span class="pre">map</span></code> does not do eager calculation.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+<span class="hll">    <span class="k">return</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>  <span class="c1"># Generator Expression</span>
+</span>
+
+<span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">my_map</span><span class="p">(</span><span class="n">double</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+<span class="go">[20, 40]</span>
+</pre></div>
+</div>
+<p>While our replica <code class="docutils literal notranslate"><span class="pre">my_map</span></code> took in a function and applied it to every element it still lacks the ability to take in multiple iterables as the standard <code class="docutils literal notranslate"><span class="pre">map</span></code> does. In the below attempt lets make the <code class="docutils literal notranslate"><span class="pre">my_map</span></code> function generic enough to handle multiple iterables.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">(</span><span class="n">my_map</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">]))</span>
+<span class="go">(11.1, 22.2)</span>
+</pre></div>
+</div>
+<p>As you see above our version of the <code class="docutils literal notranslate"><span class="pre">map</span></code> function is starting to behave a lot like the standard function. If you are interested you can attempt to create the following functions which make use of first class functions yourself as an exercise.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">my_sort(iterable,</span> <span class="pre">custom_function)</span></code> - Replicates the behaviour of the sort function. The <code class="docutils literal notranslate"><span class="pre">custom_function</span></code> can be optional which defines the custom sort criteria.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_reduce</span></code> - Replicates the behaviour of reduce.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_filter</span></code> - Replicates the behaviour of filter.</p></li>
+</ul>
+</div>
+<div class="section" id="simple-function-dispatcher">
+<h2>Simple Function Dispatcher<a class="headerlink" href="#simple-function-dispatcher" title="Permalink to this headline">¶</a></h2>
+<p>An another interesting use case of first class functions can be to create a function dispatcher. A function dispatcher calls a function based on some arguments/logic</p>
+<p>Lets consider a use case where based on the value of the argument a particular function needs to call a different function dynamically i.e. we are not creating a bunch of if conditions and calling functions by name inside those if conditions.</p>
+<p>Below are 3 functions and a dispatcher dictionary. The <code class="docutils literal notranslate"><span class="pre">dispatcher</span></code> function can call any function listed in the dictionary based on the <code class="docutils literal notranslate"><span class="pre">num</span></code> argument it receives. This makes the <code class="docutils literal notranslate"><span class="pre">dispatcher</span></code> function generic enough to call a particular function based on the arguments it receives. This is possible due to the Python programming language supporting functions as first class citizens.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+    
+    
+<span class="k">def</span> <span class="nf">two</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+    
+    
+<span class="k">def</span> <span class="nf">three</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+    
+
+<span class="n">DISPATCH</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">one</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">two</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="n">three</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">dispatcher</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">DISPATCH</span><span class="p">[</span><span class="n">num</span><span class="p">]()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dispatcher</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">one</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-a-data-pipe-line-generator">
+<h2>Building a Data Pipe Line generator<a class="headerlink" href="#building-a-data-pipe-line-generator" title="Permalink to this headline">¶</a></h2>
+<p>Before we jump into creating a data pipeline generator take a look at nested functions below. Python allows the creation of a function within a function (i.e. nested function). In this example we are just returning a function <code class="docutils literal notranslate"><span class="pre">func</span></code> which was created within the function <code class="docutils literal notranslate"><span class="pre">func_maker</span></code>. It applies a random power to the argument supplied.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">def</span> <span class="nf">func_maker</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">func</span>
+
+
+<span class="n">surprise_power</span> <span class="o">=</span> <span class="n">func_maker</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">surprise_power</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">1000</span>
+</pre></div>
+</div>
+<p>Below code is a quick demonstration of the power of first class functions. Using the <code class="docutils literal notranslate"><span class="pre">pipeline_creator</span></code> function the user has the ability to create linear pipelines which process data in sequence.</p>
+<p>In data engineering it is common to clean, transform and store data. Thus I created 3 simple functions to do the same which act on string data. These functions can then be arranged in any order by calling the <code class="docutils literal notranslate"><span class="pre">pipeline_creator</span></code> function which gives the user ability to generate data transformation pipelines using simple functions.</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">zip_longest</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">exclude</span> <span class="o">=</span> <span class="s2">&quot;.,!()[]*&#39;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">maketrans_dict</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">zip_longest</span><span class="p">(</span><span class="n">exclude</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">maketrans_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span> <span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">lower</span><span class="p">()}</span>
+
+
+<span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">serialized_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c1"># actual storage omitted</span>
+    <span class="k">return</span> <span class="n">serialized_data</span>
+
+
+<span class="k">def</span> <span class="nf">pipeline_creator</span><span class="p">(</span><span class="n">funcs</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">:</span>
+            <span class="n">pipeline</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    <span class="k">return</span> <span class="n">func</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lets create two pipelines <code class="docutils literal notranslate"><span class="pre">full_pipeline</span></code> and <code class="docutils literal notranslate"><span class="pre">partial_pipeline</span></code> which take in 3 and 2 functions respectively.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">full_pipeline</span> <span class="o">=</span> <span class="n">pipeline_creator</span><span class="p">([</span><span class="n">clean</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">store</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">partial_pipeline</span> <span class="o">=</span> <span class="n">pipeline_creator</span><span class="p">([</span><span class="n">clean</span><span class="p">,</span> <span class="n">store</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">full_pipeline</span><span class="p">(</span><span class="s2">&quot;Today. is monday!! () and tomorrow is tuesday&quot;</span><span class="p">)</span>
+<span class="go">{&quot;b0571f93-c654-471c-be08-134eb52737a2&quot;: &quot;today is monday  and tomorrow is tuesday&quot;}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">partial_pipeline</span><span class="p">(</span><span class="s2">&quot;Today. is monday!! () and tomorrow is tuesday&quot;</span><span class="p">)</span>
+<span class="go">&#39;&quot;Today is monday  and tomorrow is tuesday&quot;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>First class functions can be treated like any other value i.e. stored in a variable, returned from a function or passed as an argument. They can be used to build powerful programming constructs.</p>
+</div>
+</div>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="pandas-cheatsheet.html">
+      <i class="fa fa-arrow-circle-left"></i> Pandas cheatsheet
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+  <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = "sethirajat";
+      var disqus_identifier = "/blog/first-class-functions-in-python/";
+      var disqus_title = "First Class Functions in Python";
+      var disqus_url = "https://sethirajat.com/blog/first-class-functions-in-python";
+
+      (function () {
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
+      })();
+    </script>
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript"
+        >comments powered by Disqus.</a
+      ></noscript
+    >
+    <a href="https://disqus.com" class="dsq-brlink"
+      >comments powered by <span class="logo-disqus">Disqus</span></a
+    >
+  </div>
+  
+</div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'G-EKRVF1S5Y8', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021 - Rajat Sethi.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
