@@ -14,7 +14,7 @@ I also work in the field of Data and Data Science to learn about customer adopti
 articles/index.md
 ```
 
-## Recent Blog Posts
+## Recent Articles
 
 See the [blog archives](blog) for a more complete list.
 
