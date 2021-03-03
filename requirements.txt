@@ -1,9 +1,0 @@
-xarray
-myst_nb
-sphinx
-sphinx-panels
-ablog
-sphinxext-opengraph
-pydata-sphinx-theme
-MyST-Parser
-# sphinxcontrib-bibtex
